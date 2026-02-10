@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VClass English - Inglês Conversação & Preparação para Exames</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonte Google para um visual mais moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a365d; /* Azul mais escuro e profissional */
+            --secondary: #2b6cb0; /* Azul principal */
+            --accent: #e53e3e; /* Vermelho para destaque */
+            --accent-light: #fed7d7;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ATUALIZADO ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+            padding: 18px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(26, 54, 93, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 6px rgba(43, 108, 176, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 3px;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Navegação principal e botão CTA */
+        .nav-and-cta {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background: var(--accent);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(229, 62, 62, 0.2);
+            border: 2px solid transparent;
+        }
+
+        .header-cta:hover {
+            background: transparent;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(229, 62, 62, 0.25);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* ===== SEÇÃO HERO ATUALIZADA ===== */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito parallax */
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(43, 108, 176, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: #e2e8f0;
+            font-weight: 300;
+        }
+
+        .hero .motto {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #cbd5e0;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .hero .motto::before,
+        .hero .motto::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+        }
+
+        .hero .motto::before { left: 0; }
+        .hero .motto::after { right: 0; }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--accent) 0%, #c53030 100%);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(229, 62, 62, 0.5);
+        }
+
+        /* ===== NOVA SEÇÃO: VANTAGENS DO ONLINE ===== */
+        .online-advantages {
+            padding: 80px 0;
+            background-color: white;
+            margin-bottom: 80px;
+        }
+
+        .online-advantages .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .advantage-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--secondary);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--accent);
+        }
+
+        .advantage-icon {
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .advantage-content h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* ===== NOVA SEÇÃO: DEPOIMENTOS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            margin-bottom: 80px;
+        }
+
+        .testimonials .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-style: italic;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border-top: 5px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-top-color: var(--secondary);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--accent-light);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        /* ===== SEÇÃO DE PREPARAÇÃO PARA EXAMES ATUALIZADA ===== */
+        .exam-prep {
+            margin-bottom: 80px;
+        }
+
+        .exam-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .exam-detail-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .exam-detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .exam-detail-card i {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* ===== SEÇÃO DE METODOLOGIA DESENVOLVIDA POR EXAMINADORES ===== */
+        .methodology {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+            margin-bottom: 80px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .methodology .section-title {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .methodology p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* ===== SEÇÃO DE TIPOS DE AULA (Business, Academic, Conversation) ===== */
+        .lesson-types {
+            margin-bottom: 80px;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .type-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .type-header {
+            background: var(--secondary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .type-header h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .type-body {
+            padding: 30px;
+        }
+
+        .type-body ul {
+            list-style: none;
+        }
+
+        .type-body li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .type-body li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ===== SEÇÃO DE RECURSOS & BENEFÍCIOS ===== */
+        .resources-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .resources, .benefits {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== BOTÃO DE TESTE DE NÍVEL ===== */
+        .level-test {
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #f0fff4 0%, #dcffe4 100%);
+            border-radius: var(--border-radius);
+            margin-bottom: 80px;
+            border: 2px dashed var(--success);
+        }
+
+        .level-test h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .level-test p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #4a5568;
+        }
+
+        .test-button {
+            background: var(--success);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .test-button:hover {
+            background: #2f855a;
+            transform: scale(1.05);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 992px) {
+            .hero h2 { font-size: 2.7rem; }
+            .advantages-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 20px; }
+            .nav-and-cta { width: 100%; justify-content: space-between; }
+            nav ul { display: none; }
+            nav ul.mobile-active {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+                background: var(--primary);
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 80px 20px; }
+            .hero h2 { font-size: 2.2rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>VClass English</h1>
+                    <p class="tagline">Inglês Virtual & Preparação para Exames</p>
+                </div>
+            </div>
+            
+            <div class="nav-and-cta">
+                <nav>
+                    <ul id="mainNav">
+                        <li><a href="#advantages">Vantagens</a></li>
+                        <li><a href="#pricing">Preços</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#exam-prep">Exames</a></li>
+                        <li><a href="#lesson-types">Aulas</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="header-cta">Aula Experimental</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <div class="container hero-content">
+            <h2>ENGLISH VIRTUAL CLASS</h2>
+            <p class="subtitle">Estude inglês com dicas e sugestões de quem entende. Aprenda critérios e estratégias específicas para passar em exames.</p>
+            <p class="motto">"Learning Can Happen Anywhere"</p>
+            <a href="#level-test" class="cta-button">
+                <i class="fas fa-clipboard-check"></i> VERIFIQUE SEU NÍVEL DE INGLÊS
+            </a>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Vantagens do Online -->
+    <section class="online-advantages container fade-in" id="advantages">
+        <h2 class="section-title">SEIS VANTAGENS DE ESTUDAR ONLINE</h2>
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-user-check"></i></div>
+                <div class="advantage-content">
+                    <h4>Interação 100% com o Professor</h4>
+                    <p>Você interage diretamente com o professor o tempo todo, sem distrações de outros alunos.</p>
+                </div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="advantage-content">
+                    <h4>Melhor Custo-Benefício</h4>
+                    <p>Valor imensamente superior comparado a aulas em grupo. Sem pressão ou constrangimento.</p>
+                </div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="advantage-content">
+                    <h4>Seu Próprio Ritmo</h4>
+                    <p>Você não perde tempo com dúvidas de outros alunos. O aprendizado é totalmente personalizado.</p>
+                </div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-bullseye"></i></div>
+                <div class="advantage-content">
+                    <h4>Foco Total nas Suas Necessidades</h4>
+                    <p>O professor concentra-se exclusivamente nas suas dúvidas, usando recursos imediatos para seu apoio.</p>
+                </div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-piggy-bank"></i></div>
+                <div class="advantage-content">
+                    <h4>Economia de Tempo e Dinheiro</h4>
+                    <p>Sem deslocamento. Faça aulas de onde estiver. O sistema se adapta à sua rotina.</p>
+                </div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon"><i class="fas fa-clock"></i></div>
+                <div class="advantage-content">
+                    <h4>Recursos Extras 24/7</h4>
+                    <p>Acesso a materiais e gravações para revisão a qualquer hora, todos os dias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Depoimentos -->
+    <section class="testimonials fade-in" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O QUE DIZEM OS ALUNOS QUE CONFIARAM EM NÓS</h2>
+            <p class="section-subtitle">(Apesar de que nem todos se lembram de olhar para trás e agradecer)</p>
+            
+            <div class="testimonials-grid">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Graças a Deus deu certo! Muito obrigado pelas aulas, atenção, dicas e profissionalismo apesar do pouco tempo de preparação que tivemos por conta da reviravolta das datas das provas. Thank you so much! :)
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">GB</div>
+                        <div class="author-info">
+                            <h4>Gabriel Barbosa</h4>
+                            <p>Brasília, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Depoimento 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Professor, você é o melhor professor que eu encontrei! Desta vez, minha entrevista foi muito boa e me senti confiante no exame IELTS; consegui passar no exam! Já estou trabalhando no Canadá. Não posso dizer obrigado o suficiente!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Roni</h4>
+                            <p>Curitiba, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Depoimento 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Hey Edson, how are you doing?! I'm just reaching you out to thank you so much for your classes and help. They made all the difference. I got a job offer to work in Poland and later moved to Dublin-Ireland. I use my English every day.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RF</div>
+                        <div class="author-info">
+                            <h4>Rafael</h4>
+                            <p>Curitiba, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Depoimento 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Hi teacher! Good news. Today I received the IELTS result: Listening: 7.0, Reading: 6.0, Writing: 6.5, Overall: 6.5. Thank you so much! It was a really hard test, quite technical. I was so nervous and I've tried to do my best and I got it.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AB</div>
+                        <div class="author-info">
+                            <h4>Andy B. B.</h4>
+                            <p>Curitiba, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Preços (mantida do código anterior) -->
+    <section class="pricing-section container fade-in" id="pricing">
+        <h2 class="section-title">Inglês Intensivo • The Direct Method</h2>
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <h3>INGLÊS CONVERSAÇÃO</h3>
+                <div class="price">
+                    <span class="original-price">R$560.00</span>
+                    <span class="current-price">R$440.00</span>
+                </div>
+                <p class="method">Método Direto • Aulas Intensivas</p>
+            </div>
+            <div class="pricing-features">
+                <div class="feature-column">
+                    <h4>✨ Diferenciais Exclusivos</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Aula Individual Personalizada</li>
+                        <li><i class="fas fa-check-circle"></i> Confiança na comunicação</li>
+                        <li><i class="fas fa-check-circle"></i> Foco total em Conversação Real</li>
+                        <li><i class="fas fa-check-circle"></i> Resultados rápidos e mensuráveis</li>
+                    </ul>
+                </div>
+                <div class="feature-column">
+                    <h4>✅ Níveis Oferecidos</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-star"></i> Básico</li>
+                        <li><i class="fas fa-star"></i> Intermediário</li>
+                        <li><i class="fas fa-star"></i> Avançado</li>
+                        <li><i class="fas fa-star"></i> Proficiente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Preparação para Exames Atualizada -->
+    <section class="exam-prep container fade-in" id="exam-prep">
+        <h2 class="section-title">Preparação Especializada para Exames</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #4a5568;">
+            Tenha informações detalhadas do exame; entenda e pratique para o teste com base em exames reais. Conheça a estrutura e estratégias; gramática e prática com vocabulário atualizado. Pratique com exercícios + simulações de audição, leitura, escrita e fala.
+        </p>
+        
+        <div class="exam-details">
+            <div class="exam-detail-card">
+                <i class="fas fa-file-alt"></i>
+                <h4>Informações Detalhadas</h4>
+                <p>Entenda a estrutura completa do exame, critérios de avaliação e formato das questões.</p>
+            </div>
+            <div class="exam-detail-card">
+                <i class="fas fa-chess"></i>
+                <h4>Estratégias Específicas</h4>
+                <p>Aprenda técnicas comprovadas para cada seção do teste e gestão do tempo.</p>
+            </div>
+            <div class="exam-detail-card">
+                <i class="fas fa-running"></i>
+                <h4>Prática com Simulações</h4>
+                <p>Exercícios de audição, leitura, escrita e fala baseados em exames reais.</p>
+            </div>
+            <div class="exam-detail-card">
+                <i class="fas fa-user-graduate"></i>
+                <h4>Para Todos os Níveis</h4>
+                <p>Seja qual for o seu nível ou objetivo, temos a preparação ideal para você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Metodologia por Examinadores -->
+    <section class="methodology fade-in">
+        <div class="container">
+            <h2 class="section-title">MÉTODO DESENVOLVIDO POR EXAMINADORES</h2>
+            <p>Nossa metodologia foi criada por profissionais com experiência real em aplicação e correção dos principais exames internacionais. Você aprende exatamente o que os avaliadores procuram.</p>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Tipos de Aula -->
+    <section class="lesson-types container fade-in" id="lesson-types">
+        <h2 class="section-title">AULA PARTICULAR DE INGLÊS COM PROFESSORES EXPERIENTES</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #4a5568;">Professores com vivência internacional e especialização em diferentes áreas.</p>
+        
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-header">
+                    <h4>INGLÊS PARA ENTREVISTAS DE TRABALHO</h4>
+                    <p>(Business & Job Interview)</p>
+                </div>
+                <div class="type-body">
+                    <ul>
+                        <li>Preparação para entrevistas em multinacionais</li>
+                        <li>Business vocabulary e cultura corporativa</li>
+                        <li>Simulações de entrevistas com feedback</li>
+                        <li>Como destacar suas qualificações</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="type-card">
+                <div class="type-header">
+                    <h4>INGLÊS ACADÊMICO</h4>
+                    <p>(Academic English)</p>
+                </div>
+                <div class="type-body">
+                    <ul>
+                        <li>Preparação para universidades no exterior</li>
+                        <li>Redação de papers e artigos científicos</li>
+                        <li>Apresentações acadêmicas em inglês</li>
+                        <li>Qualificação para vistos e imigração</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="type-card">
+                <div class="type-header">
+                    <h4>INGLÊS PARA O DIA A DIA</h4>
+                    <p>(Everyday Conversation)</p>
+                </div>
+                <div class="type-body">
+                    <ul>
+                        <li>Conversação prática para situações reais</li>
+                        <li>Viagens, turismo e vida no exterior</li>
+                        <li>Comunicação em redes sociais e internet</li>
+                        <li>Desenvolva confiança para falar em qualquer situação</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Recursos e Benefícios -->
+    <section class="container resources-benefits fade-in">
+        <div class="resources">
+            <h3 class="section-title">📡 Recursos da Plataforma</h3>
+            <ul>
+                <li>Curso individual a partir da privacidade da sua casa ou escritório</li>
+                <li>Solução de videoconferência de alta qualidade</li>
+                <li>Material do curso preparado profissionalmente para download</li>
+                <li>Maior foco na compreensão, controle e interação</li>
+                <li>Acesso a recursos extras 24 horas por dia</li>
+            </ul>
+        </div>
+        
+        <div class="benefits">
+            <h3 class="section-title">✅ Benefícios para o Aluno</h3>
+            <ul>
+                <li>Melhor compreensão durante videoconferências ao vivo</li>
+                <li>Maior capacidade de participar ativamente das aulas</li>
+                <li>Confiança através da participação e uso ativo do inglês</li>
+                <li>Economia de tempo e dinheiro com deslocamento</li>
+                <li>Flexibilidade para rever as aulas quando quiser</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Botão de Teste de Nível -->
+    <section class="container level-test fade-in" id="level-test">
+        <h3>CLIQUE E VERIFIQUE SEU NÍVEL DE INGLÊS</h3>
+        <p>Faça nosso teste online gratuito e receba uma avaliação detalhada do seu nível atual de inglês, com sugestões personalizadas para sua evolução.</p>
+        <a href="#contact" class="test-button">
+            <i class="fas fa-play-circle"></i> FAZER TESTE DE NÍVEL GRATUITO
+        </a>
+    </section>
+
+    <!-- Seção de Contato (mantida do código anterior) -->
+    <section class="contact-section container fade-in" id="contact">
+        <div class="contact-info">
+            <h3>📞 Contato Direto</h3>
+            <p>Entre em contato agora mesmo para agendar sua aula experimental ou fazer o teste de nível!</p>
+            
+            <div class="phone-number">
+                <i class="fab fa-whatsapp"></i> (41) 9 9172-5009
+            </div>
+            
+            <p>Atendimento por mensagens</p>
+            
+            <a href="https://wa.me/5541991725009" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Fale Conosco pelo WhatsApp
+            </a>
+            
+            <p class="urgency">⚡ Confira já! Não perca tempo!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>VClass English &copy; <span id="currentYear"></span> - Aula Particular de Inglês Online</p>
+            <p>Professores Experientes com Vivência Internacional | Resultados Comprovados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('mobile-active');
+            
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('mainNav');
+                    if(nav.classList.contains('mobile-active')) {
+                        nav.classList.remove('mobile-active');
+                        document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                        document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // WhatsApp click tracking
+        document.querySelector('.whatsapp-button').addEventListener('click', function() {
+            console.log('WhatsApp button clicked - potential student');
+            // Aqui você pode adicionar Google Analytics ou outro tracking
+            // gtag('event', 'click', { 'event_category': 'Contact', 'event_label': 'WhatsApp Button' });
+        });
+        
+        // Test button tracking
+        document.querySelector('.test-button').addEventListener('click', function() {
+            console.log('Level test button clicked');
+            // gtag('event', 'click', { 'event_category': 'Conversion', 'event_label': 'Level Test' });
+        });
+    </script>
+</body>
+</html>
